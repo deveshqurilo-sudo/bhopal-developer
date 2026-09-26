@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-whatsapp: var(--whatsapp);
+  --shadow-soft: 0 20px 50px -25px
+    color-mix(in oklab, var(--ink) 25%, transparent);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(98.5% 0.005 95);
+  --foreground: oklch(24% 0.008 150);
+  --card: oklch(100% 0 0);
+  --primary: oklch(42% 0.06 150);
+  --primary-foreground: oklch(98% 0.005 95);
+  --secondary: oklch(95.5% 0.012 120);
+  --muted-foreground: oklch(50% 0.01 150);
+  --accent: oklch(93% 0.03 140);
+  --accent-foreground: oklch(30% 0.05 150);
+  --border: oklch(91% 0.008 110);
+  --input: oklch(89% 0.01 110);
+  --ink: oklch(20% 0.01 150);
+  --ink-foreground: oklch(96% 0.006 95);
+  --whatsapp: oklch(68% 0.17 150);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  button,
+  a,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:not(:disabled),
+  select {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 5px;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+@layer components {
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--primary);
+  }
+  .form-field {
+    @apply w-full rounded-xl border border-input bg-card px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15;
+  }
+}
+
+.lightbox {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 1rem;
+  background: transparent;
+  color: var(--ink-foreground);
+}
+.lightbox::backdrop {
+  background: color-mix(in oklab, var(--ink) 90%, transparent);
+}
+.lightbox[open] {
+  display: grid;
+  place-items: center;
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

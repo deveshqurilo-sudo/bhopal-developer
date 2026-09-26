@@ -1,0 +1,71 @@
+{
+  "referenceUrl": "https://plot-zen-living.lovable.app/#home",
+  "downloadedOn": "2026-09-26",
+  "quality": "Original published JPEG bytes; no resizing or recompression. No larger variant exposed in inspected HTML, route bundle, or CSS.",
+  "images": [
+    {
+      "file": "public/images/reference/hero.jpg",
+      "sourceUrl": "https://plot-zen-living.lovable.app/assets/hero-CqGwaSR1.jpg",
+      "width": 1920,
+      "height": 1088,
+      "bytes": 290929,
+      "sha256": "2a37e897214ab41e30d18c43032a036ee5fd2b4cec76af193094e89e169a06c8"
+    },
+    {
+      "file": "public/images/reference/project-plots.jpg",
+      "sourceUrl": "https://plot-zen-living.lovable.app/assets/project-plots-pkO9DLDS.jpg",
+      "width": 1200,
+      "height": 912,
+      "bytes": 235772,
+      "sha256": "7d6e6a4e3035265ad313ed7afbb1a4454627c25b280c63e29004a1152d4162b0"
+    },
+    {
+      "file": "public/images/reference/project-farm.jpg",
+      "sourceUrl": "https://plot-zen-living.lovable.app/assets/project-farm-HNYszRMm.jpg",
+      "width": 1200,
+      "height": 912,
+      "bytes": 279803,
+      "sha256": "a10b0db595c0a26f0a2514f0929d708cf6b7175e62328c0642971f266a6094ac"
+    },
+    {
+      "file": "public/images/reference/location-map.jpg",
+      "sourceUrl": "https://plot-zen-living.lovable.app/assets/map-DwsoFZdT.jpg",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 100531,
+      "sha256": "80e3ad108c1cf7edda4fb7eebef961798dc80425e86ef02940c60e63c6086e2f"
+    },
+    {
+      "file": "public/images/reference/farmhouse.jpg",
+      "sourceUrl": "https://plot-zen-living.lovable.app/assets/farmhouse-2JgWTbKf.jpg",
+      "width": 1920,
+      "height": 1088,
+      "bytes": 474875,
+      "sha256": "d5b3d432974ba0d6b9a83ddbaf1f7afa23cf84ac04319a0d3a7a461224631318"
+    },
+    {
+      "file": "public/images/reference/entrance.jpg",
+      "sourceUrl": "https://plot-zen-living.lovable.app/assets/entrance-D6vzoQVU.jpg",
+      "width": 1024,
+      "height": 1280,
+      "bytes": 173102,
+      "sha256": "9ff068d09eca1a0c6c65ec69923e475cdafefd3cc4fbd6a0ead54005b866453e"
+    },
+    {
+      "file": "public/images/reference/internal-road.jpg",
+      "sourceUrl": "https://plot-zen-living.lovable.app/assets/road-wAzkFe5E.jpg",
+      "width": 1024,
+      "height": 1280,
+      "bytes": 278295,
+      "sha256": "503f5b5bc447ba4d161e70cf276b725f90b81917b624314423b5584f2a2eef19"
+    },
+    {
+      "file": "public/images/reference/development.jpg",
+      "sourceUrl": "https://plot-zen-living.lovable.app/assets/development-C6SfJJWL.jpg",
+      "width": 1200,
+      "height": 912,
+      "bytes": 220743,
+      "sha256": "62e09f16f8da456db5799092d399c2bf1f51483fffefc8dfabdfa37cae5b1216"
+    }
+  ]
+}
