@@ -15,20 +15,21 @@ import { siteConfig, siteImages } from "@/config/site";
 import { locations, projects, statistics } from "../data/content";
 import { EnquiryForm } from "./enquiry-form";
 import { ProjectCard } from "./project-card";
+import { ContactQrCard } from "./contact-qr-card";
 
 export function AboutSection() {
   return (
     <Section id="about">
       <div className="grid gap-12 md:grid-cols-2 md:items-center">
         <div>
-          <p className="eyebrow">A better way to own land</p>
+          <p className="eyebrow">A better way to own Plots</p>
           <h2 className="mt-4 text-4xl leading-tight md:text-6xl">
             Spaces designed for living, investing and growing.
           </h2>
         </div>
         <div className="space-y-5 leading-relaxed text-muted-foreground">
           <p>
-            We develop thoughtfully planned land and farmhouse projects around
+            We develop thoughtfully planned Plots and farmhouse projects around
             Bhopal, bringing together location, accessibility, open spaces and a
             better ownership experience.
           </p>
@@ -370,6 +371,7 @@ export function ContactSection() {
         </ButtonLink>
         <ButtonLink href="#enquiry">Book a Site Visit</ButtonLink>
       </div>
+      <ContactQrCard />
     </Section>
   );
 }

@@ -1,6 +1,6 @@
 // Update contact details here before connecting this website to your business.
 export const siteConfig = {
-  name: "Bhoomi Estates",
+  name: "Landmark builders and developers.",
   company: "[BUILDER / COMPANY NAME]",
   phone: "[PHONE NUMBER]",
   phoneHref: "tel:+910000000000",
@@ -9,6 +9,7 @@ export const siteConfig = {
   email: "[EMAIL]",
   office: "[OFFICE ADDRESS]",
   directionsHref: "https://maps.google.com/?q=Bhopal",
+  nextDealUrl: "https://nextdeal.in/",
   // Set these after your legal pages are ready.
   privacyHref: "#contact",
   termsHref: "#contact",

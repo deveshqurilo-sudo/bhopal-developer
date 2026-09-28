@@ -1,4 +1,4 @@
-# Bhoomi Estates — Next.js
+# Landmark builders and developers. — Next.js
 
 Responsive TypeScript / Next.js App Router recreation of the supplied [reference](https://plot-zen-living.lovable.app/#home). The original typography, colors, section order, spacing, responsive breakpoints, and content placeholders are retained. The reference's eight unique content images are hosted locally and mapped to their matching sections.
 
@@ -17,6 +17,7 @@ Open http://localhost:3000. Use `npm run lint`, `npm run typecheck`, and `npm ru
 - Edit `siteImages` in `src/config/site.ts` to set a different image for each section. URLs start with `/images/`, without `/public`.
 - Original reference images are in `public/images/reference/`; replace individual files or update the corresponding `siteImages` paths.
 - Update company/contact details and legal links in `src/config/site.ts`.
+- The contact QR card uses `siteConfig.nextDealUrl` for both the QR and website links. Its PNG is generated at build time with a white quiet zone; changing the URL requires a rebuild. No external QR service or client-side QR library is used.
 - Update projects, gallery captions, locations, and stats in `src/features/home/data/content.ts`.
 - Fonts and images are served locally. Your existing uploaded photos and the old dummy file are preserved; reference assets are kept in their own directory.
 - Reference images are unchanged downloads of the source JPEGs: hero/farmhouse 1920×1088, project/development photos 1200×912, map 1200×1200, and entrance/road 1024×1280. The inspected page, gallery code, and stylesheet expose no higher-resolution alternatives. Source URLs, dimensions, sizes, and hashes are recorded in `docs/reference-images.json`.
