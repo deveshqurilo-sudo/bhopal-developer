@@ -32,6 +32,12 @@ src/features/home/         Homepage sections, forms, gallery, typed content
 src/config/site.ts         Image slots, business details, navigation
 ```
 
+## Project details
+
+Each homepage project card opens a statically generated route at `/projects/<slug>`. The three routes are Shiv Shakti Dham, Royal Green Park, and Palm Springs. The pages include an image carousel and fullscreen view, project summary, highlights, features, brochure download, and a site-visit form. The form is a UI demo and clearly states that requests are not sent until a CRM/API is connected.
+
+Projects and slugs are defined in `src/features/home/data/content.ts`. Their gallery, highlights, features, and matching local PDF are defined in `src/features/projects/data/project-details.ts`. The images currently come from the reference asset set and are marked as illustrative on the detail pages; replace them with verified photos for each project before presenting them as actual site photography. Sizes, pricing, approvals, and availability are shown as available on request until confirmed.
+
 Static content uses Server Components. Only the header, forms, gallery, and video player hydrate on the client. The gallery uses a native modal dialog with focus containment, focus return, Escape, previous/next buttons, and arrow-key navigation. Motion respects reduced-motion settings. The light theme intentionally follows the supplied design.
 
 ## Video walkthrough and PDF brochure

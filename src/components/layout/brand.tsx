@@ -1,9 +1,15 @@
 import { siteConfig } from "@/config/site";
 
-export function Brand({ light = false }: { light?: boolean }) {
+export function Brand({
+  light = false,
+  href = "#home",
+}: {
+  light?: boolean;
+  href?: string;
+}) {
   return (
     <a
-      href="#home"
+      href={href}
       className={`flex items-center gap-2 font-display text-2xl ${light ? "text-ink-foreground" : "text-foreground"}`}
       aria-label={`${siteConfig.name} home`}
     >
