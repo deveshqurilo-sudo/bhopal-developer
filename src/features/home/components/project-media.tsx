@@ -2,14 +2,10 @@ import { ArrowDownToLine, ArrowUpRight, FileText } from "lucide-react";
 import { siteMedia } from "@/config/site";
 import { Section } from "@/components/ui/section";
 import { ButtonLink } from "@/components/ui/button-link";
-import { getMediaUrl } from "../lib/media-url";
 import { ProjectVideo } from "./project-video";
 
 export function ProjectMedia() {
   const { video, brochure } = siteMedia;
-  const brochureUrl = getMediaUrl(brochure.url);
-  const downloadUrl = getMediaUrl(brochure.downloadUrl);
-  const hasBrochure = Boolean(brochureUrl || downloadUrl);
 
   return (
     <Section
@@ -30,8 +26,8 @@ export function ProjectMedia() {
           </h2>
         </div>
         <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:pb-2">
-          Watch the project film, browse the brochure, and take the next step at
-          your own pace.
+          Watch the project film, browse the brochures, and take the next step
+          at your own pace.
         </p>
       </div>
       <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-[1.6fr_1fr] lg:gap-8">
@@ -42,62 +38,46 @@ export function ProjectMedia() {
               <FileText className="h-6 w-6" />
             </span>
             <span className="rounded-full border border-primary/15 px-3 py-1.5 text-[0.65rem] font-semibold tracking-[0.15em] text-primary uppercase">
-              Project brochure
+              Project brochures
             </span>
           </div>
           <h3 className="mt-8 text-4xl leading-tight">{brochure.title}</h3>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             {brochure.description}
           </p>
-          <div className="mt-8 border-t pt-6">
-            <p className="flex flex-wrap items-center gap-2 text-xs font-medium text-muted-foreground">
-              <FileText className="h-4 w-4" />
-              PDF document
-              {brochure.sizeLabel && (
-                <>
-                  <span aria-hidden="true">·</span>
-                  {brochure.sizeLabel}
-                </>
-              )}
-            </p>
-          </div>
-          <div className="mt-auto pt-6">
-            {hasBrochure ? (
-              <div className="flex flex-wrap gap-3">
-                {brochureUrl && (
-                  <ButtonLink
-                    href={brochureUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full"
-                    aria-label="View project brochure PDF (opens in a new tab)"
+          <div className="mt-8 border-t pt-2">
+            {brochure.documents.length > 0 ? (
+              <ul aria-label="Download project brochures" className="divide-y">
+                {brochure.documents.map((document) => (
+                  <li
+                    key={document.id}
+                    className="flex flex-wrap items-center justify-between gap-3 py-5"
                   >
-                    View Brochure
-                    <ArrowUpRight className="h-4 w-4" />
-                  </ButtonLink>
-                )}
-                {downloadUrl && (
-                  <ButtonLink
-                    href={downloadUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="outline"
-                    className="w-full flex-wrap"
-                  >
-                    Download PDF
-                    {brochure.downloadSizeLabel && (
-                      <span className="font-normal">
-                        ({brochure.downloadSizeLabel})
-                      </span>
-                    )}
-                    <ArrowDownToLine className="h-4 w-4" />
-                  </ButtonLink>
-                )}
-              </div>
+                    <div className="min-w-0 flex-1 basis-36">
+                      <h4 className="text-sm font-semibold">
+                        {document.title}
+                      </h4>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        PDF <span aria-hidden="true">·</span>{" "}
+                        {document.sizeLabel}
+                      </p>
+                    </div>
+                    <ButtonLink
+                      href={`/pdf/${encodeURIComponent(document.fileName)}`}
+                      download={document.fileName}
+                      className="shrink-0 !px-4 !py-2.5"
+                      aria-label={`Download ${document.title} (PDF, ${document.sizeLabel})`}
+                    >
+                      <ArrowDownToLine className="h-4 w-4" />
+                      Download
+                    </ButtonLink>
+                  </li>
+                ))}
+              </ul>
             ) : (
-              <>
+              <div className="pt-4">
                 <p className="mb-4 text-sm text-muted-foreground">
-                  Our brochure will be available here soon.
+                  Our brochures will be available here soon.
                 </p>
                 <ButtonLink
                   href="#enquiry"
@@ -107,7 +87,7 @@ export function ProjectMedia() {
                   Enquire About the Project
                   <ArrowUpRight className="h-4 w-4" />
                 </ButtonLink>
-              </>
+              </div>
             )}
           </div>
         </article>

@@ -38,22 +38,22 @@ Static content uses Server Components. Only the header, forms, gallery, and vide
 
 The **A closer look** section appears immediately after the project cards (`#project-media`). Configure `siteMedia` in `src/config/site.ts`:
 
-| Setting                      | What to paste                                                            |
-| ---------------------------- | ------------------------------------------------------------------------ |
-| `video.src`                  | Direct public HTTPS URL of a web-optimized MP4 (H.264 video / AAC audio) |
-| `video.poster`               | A small local image path or public HTTPS thumbnail URL                   |
-| `video.durationLabel`        | Optional real runtime, such as `02:30`                                   |
-| `video.captions`             | Real WebVTT caption tracks for speech; keep files in `public/captions/`  |
-| `brochure.url`               | Direct HTTPS URL of the screen-readable PDF                              |
-| `brochure.sizeLabel`         | Actual size of that PDF                                                  |
-| `brochure.downloadUrl`       | Optional original PDF URL with an attachment response header             |
-| `brochure.downloadSizeLabel` | Actual size of the original download                                     |
+| Setting                          | What to paste                                                            |
+| -------------------------------- | ------------------------------------------------------------------------ |
+| `video.src`                      | Direct public HTTPS URL of a web-optimized MP4 (H.264 video / AAC audio) |
+| `video.poster`                   | A small local image path or public HTTPS thumbnail URL                   |
+| `video.durationLabel`            | Optional real runtime, such as `02:30`                                   |
+| `video.captions`                 | Real WebVTT caption tracks for speech; keep files in `public/captions/`  |
+| `brochure.documents`             | List of PDFs displayed in the brochure card                              |
+| `brochure.documents[].fileName`  | Exact filename in `public/pdf/`, including spaces and extension          |
+| `brochure.documents[].title`     | Display name for the brochure                                            |
+| `brochure.documents[].sizeLabel` | Actual file size shown before download                                   |
 
-Use Cloudinary's asset delivery/secure URL, not its dashboard URL. URLs from another HTTPS file host also work. Rebuild/redeploy after configuration changes on a static production host. Leaving URLs empty shows intentional coming-soon states; no fake sample video or PDF is linked. HTTP, invalid, executable, and credential-containing media URLs are rejected.
+Use Cloudinary's asset delivery/secure URL, not its dashboard URL. URLs from another HTTPS file host also work. Rebuild/redeploy after configuration changes on a static production host. An empty video URL or brochure document list shows an intentional coming-soon state. HTTP, invalid, executable, and credential-containing media URLs are rejected.
 
 The player is mounted only after Play is clicked, so the initial page does not request the large video. It includes native playback, seek, volume/fullscreen controls where supported, inline mobile playback, and load-error recovery. Playback is requested only after user interaction; if the browser blocks it, native Play remains available. This is a progressive video player, **not** an HLS/DASH player: do not paste `.m3u8`, `.mpd`, YouTube share links, or MOV originals. For longer films, an adaptive player can be added later.
 
-PDFs are ordinary external links opened on request, with no iframe or automatic download. Keep the reading copy small; use the optional separate link for a large original. Cross-origin `download` attributes cannot force a download. Configure the download URL/provider to return `Content-Disposition: attachment` (Cloudinary supports the `fl_attachment` delivery flag for supported assets). Do not rewrite signed URLs manually; use a valid generated delivery URL. An expired/private/blocked URL must be corrected at the host.
+The brochure card lists all three configured PDFs from `public/pdf/`, with individual names, sizes, and Download buttons. Filenames are URL-encoded, so spaces work correctly. Same-origin links use the HTML `download` attribute and preserve the original filenames. PDFs are public, require no sign-in, and are not fetched until clicked; no iframe, client-side PDF library, or Cloudinary upload is required. The static build copies these files into `out/pdf/`. When adding or replacing a file, update the configuration and rebuild before deployment.
 
 ### Large Cloudinary uploads
 
@@ -72,7 +72,7 @@ PDFs normally use Cloudinary's image resource type; raw is also available, inclu
 
 Sources: [plan limits](https://cloudinary.com/pricing/compare-plans), [large uploads](https://cloudinary.com/documentation/upload_images#chunked_asset_upload), [PDF delivery](https://cloudinary.com/documentation/paged_and_layered_media).
 
-After adding your real URLs, verify playback/seek on iOS Safari and Android Chrome, caption availability, video failure recovery, PDF access while signed out, and original file download. In DevTools, confirm no video/PDF requests before clicking their actions. The current empty configuration can be build-checked; real media delivery cannot be verified until URLs are supplied.
+After adding your real URLs, verify playback/seek on iOS Safari and Android Chrome, caption availability, video failure recovery, PDF access while signed out, and original file download. In DevTools, confirm no video/PDF requests before clicking their actions. The video still needs its real URL before playback can be verified; brochure links and exported files can be checked locally.
 
 ## Forms and production integration
 

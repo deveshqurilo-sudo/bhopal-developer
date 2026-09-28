@@ -6,37 +6,53 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
+  --color-ring: var(--ring);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
   --color-whatsapp: var(--whatsapp);
   --shadow-soft: 0 20px 50px -25px
-    color-mix(in oklab, var(--ink) 25%, transparent);
+    color-mix(in oklab, var(--ink) 18%, transparent);
 }
 
 :root {
   color-scheme: light;
-  --background: oklch(98.5% 0.005 95);
-  --foreground: oklch(24% 0.008 150);
+  --background: #fff;
+  --foreground: #202b39;
   --card: oklch(100% 0 0);
-  --primary: oklch(42% 0.06 150);
-  --primary-foreground: oklch(98% 0.005 95);
-  --secondary: oklch(95.5% 0.012 120);
-  --muted-foreground: oklch(50% 0.01 150);
-  --accent: oklch(93% 0.03 140);
-  --accent-foreground: oklch(30% 0.05 150);
-  --border: oklch(91% 0.008 110);
-  --input: oklch(89% 0.01 110);
-  --ink: oklch(20% 0.01 150);
-  --ink-foreground: oklch(96% 0.006 95);
-  --whatsapp: oklch(68% 0.17 150);
+  --card-foreground: #202b39;
+  --popover: oklch(100% 0 0);
+  --popover-foreground: #202b39;
+  --primary: #0055f1;
+  --primary-foreground: #fff;
+  --secondary: #f2f7ff;
+  --secondary-foreground: #202b39;
+  --muted: #f4f7fb;
+  --muted-foreground: #596779;
+  --accent: #eaf2ff;
+  --accent-foreground: #202b39;
+  --destructive: oklch(57.7% 0.245 27.325);
+  --destructive-foreground: #fff;
+  --border: #e1e8f2;
+  --input: #d8e1ed;
+  --ring: #0055f1;
+  --ink: #1d2733;
+  --ink-foreground: #fff;
+  --whatsapp: #0055f1;
 }
 
 @layer base {

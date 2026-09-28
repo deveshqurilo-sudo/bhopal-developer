@@ -12,29 +12,29 @@ export interface Project {
 export const projects: readonly Project[] = [
   {
     id: "premium-plots",
-    name: "[PROJECT NAME]",
+    name: "SHIV SHAKTI DHAM",
     type: "Premium Plots",
-    location: "[LOCATION], Bhopal",
+    location: "Gopalpur Highway, Behind Collector Office Vidisha Road Raisen, Bhopal",
     description:
-      "Thoughtfully planned plots in a developing location, suitable for residential use, future investment and weekend living.",
+      "Welcome to Shiv Shakti Dham, a premium real estate plotting project offering residential and commercial plots strategically located on the main 200 ft highway at Vidisha Road, Raisen. Designed for modern living and smart investment, this project provides excellent connectivity, high visibility, and immense growth potential.",
     image: siteImages.premiumPlots,
   },
   {
     id: "farmhouse-plots",
-    name: "[PROJECT NAME]",
+    name: "ROYAL GREEN PARK",
     type: "Farmhouse Plots",
-    location: "[LOCATION], Bhopal",
+    location: "Phanda Kalan, Bhopal Indore Bypass, Bhopal",
     description:
-      "Spacious farmhouse plots surrounded by greenery, designed for peaceful weekend living and long-term ownership.",
+      "At Royal Green Park, we've designed every detail with your family's happiness in mind. From strong, wide roads to lush green gardens, from 24x7 security to open spaces where children can run freely - this is more than just a house. It's a place where your dreams of a safe, modern, and peaceful life come true.",
     image: siteImages.farmhousePlots,
   },
   {
     id: "land-development",
-    name: "[PROJECT NAME]",
-    type: "Premium Land Development",
-    location: "[LOCATION], Bhopal",
+    name: "PALM SPRINGS",
+    type: "Premium Plot Development",
+    location: "1, 2 ABC Mall 4th Floor, Aakriti Ecocity, Bawadiya Kalan, Bhopal",
     description:
-      "A carefully planned development offering well-connected land parcels in an emerging location.",
+      "Palm Springs is envisioned to create a happy community of like minded people who appreciate comfortable living amidst natures raw beauty and well designed spaces.",
     image: siteImages.landDevelopment,
   },
 ];

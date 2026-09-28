@@ -53,17 +53,21 @@ export interface VideoConfig {
   }[];
 }
 
-export interface BrochureConfig {
-  url: string;
-  downloadUrl: string;
+export interface BrochureDocument {
+  id: string;
   title: string;
-  description: string;
+  fileName: string;
   sizeLabel: string;
-  downloadSizeLabel: string;
 }
 
-// Paste public HTTPS delivery URLs, not dashboard/share-page URLs.
-// Empty URLs show "coming soon" states. Never put API secrets in this public file.
+export interface BrochureConfig {
+  title: string;
+  description: string;
+  documents: readonly BrochureDocument[];
+}
+
+// Use a public HTTPS video URL and exact PDF filenames from public/pdf.
+// Never put API secrets in this public file.
 export const siteMedia: { video: VideoConfig; brochure: BrochureConfig } = {
   video: {
     // Web-optimized MP4 (H.264/AAC). MOV/HLS require a different player setup.
@@ -75,14 +79,28 @@ export const siteMedia: { video: VideoConfig; brochure: BrochureConfig } = {
     captions: [],
   },
   brochure: {
-    url: "", // Prefer a compressed PDF for reading on screen.
-    // Optional original PDF served with Content-Disposition: attachment.
-    // Cross-origin HTML download attributes cannot force a download.
-    downloadUrl: "",
     title: "Your next chapter, in detail.",
     description:
-      "Take a little time to explore. Keep our project brochure handy, share it with your family, and bring your questions to your site visit.",
-    sizeLabel: "", // Real PDF size, e.g. "8 MB".
-    downloadSizeLabel: "", // Original download size, e.g. "300 MB".
+      "Download our project brochures, explore the details with your family, and bring your questions to your site visit.",
+    documents: [
+      {
+        id: "updated-project-brochure",
+        title: "Project Brochure — Updated",
+        fileName: "BROCHURE final update.pdf",
+        sizeLabel: "3.8 MB",
+      },
+      {
+        id: "palm-spring",
+        title: "Palm Spring",
+        fileName: "Palm Spring.pdf",
+        sizeLabel: "3.0 MB",
+      },
+      {
+        id: "rgp",
+        title: "RGP Brochure",
+        fileName: "RGP BROCHURE-1.pdf",
+        sizeLabel: "2.0 MB",
+      },
+    ],
   },
 };
