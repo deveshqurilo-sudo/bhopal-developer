@@ -1,7 +1,7 @@
 // Update contact details here before connecting this website to your business.
 export const siteConfig = {
   name: "Landmark builders and developers.",
-  company: "[BUILDER / COMPANY NAME]",
+  company: "Landmark builders and developers",
   phone: "[PHONE NUMBER]",
   phoneHref: "tel:+910000000000",
   whatsapp: "[WHATSAPP NUMBER]",
