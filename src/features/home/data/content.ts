@@ -51,9 +51,9 @@ export const projects: readonly Project[] = [
 
 export const locations = [
   "Bhopal",
-  "[Location 1]",
-  "[Location 2]",
-  "[Location 3]",
+  "Gopalpur Highway, Behind Collector Office Vidisha Road Raisen, Bhopal",
+  "Phanda Kalan, Bhopal Indore Bypass, Bhopal",
+  "1, 2 ABC Mall 4th Floor, Aakriti Ecocity, Bawadiya Kalan, Bhopal",
 ] as const;
 export const statistics = [
   { value: "[XX]+", label: "Acres Developed" },
