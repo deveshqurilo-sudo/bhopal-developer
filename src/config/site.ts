@@ -10,9 +10,12 @@ export const siteConfig = {
   office: "[OFFICE ADDRESS]",
   directionsHref: "https://maps.google.com/?q=Bhopal",
   nextDealUrl: "https://nextdeal.in/",
-  // Set these after your legal pages are ready.
-  privacyHref: "#contact",
-  termsHref: "#contact",
+  // Add your business profile URLs to make the footer icons clickable.
+  social: {
+    instagram: "",
+    facebook: "",
+    linkedin: "",
+  },
 } as const;
 
 // Original reference assets, preserved at their published resolution.
