@@ -241,7 +241,7 @@ const possibilities = [
     title: "Build",
     description: "Create a space that reflects your lifestyle.",
   },
-  { number: "02", title: "Hold", description: "Own land for the future." },
+  { number: "02", title: "Hold", description: "Own Plot for the future." },
   {
     number: "03",
     title: "Grow",
@@ -255,7 +255,7 @@ export function PossibilitiesSection() {
       <div className="grid gap-12 md:grid-cols-2">
         <div>
           <h2 className="text-4xl leading-tight md:text-6xl">
-            Land that gives you possibilities.
+            Plots that gives you possibilities.
           </h2>
           <p className="mt-5 max-w-md leading-relaxed text-muted-foreground">
             A well-located plot can offer more than ownership. It can become a
