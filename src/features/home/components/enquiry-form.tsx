@@ -2,7 +2,6 @@
 
 import { useId, useState, type FormEvent } from "react";
 import { CircleCheck } from "lucide-react";
-import { projects } from "../data/content";
 
 // UI-only by design: no personal data is logged or persisted in the browser.
 // Replace this demo state with a validated server submission when connecting your CRM.
@@ -46,7 +45,7 @@ export function EnquiryForm({
       onSubmit={handleSubmit}
       className={
         quick
-          ? "grid gap-3 sm:grid-cols-2 lg:grid-cols-5"
+          ? "grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
           : "grid gap-4 sm:grid-cols-2"
       }
     >
@@ -79,18 +78,6 @@ export function EnquiryForm({
         placeholder="Mobile Number"
         className="form-field"
       />
-      <label className="sr-only" htmlFor={`${id}-email`}>
-        Email Address
-      </label>
-      <input
-        id={`${id}-email`}
-        name="email"
-        type="email"
-        autoComplete="email"
-        maxLength={254}
-        placeholder="Email Address"
-        className={`form-field ${quick ? "" : "sm:col-span-2"}`}
-      />
       {quick ? (
         <>
           <label className="sr-only" htmlFor={`${id}-city`}>
@@ -107,40 +94,6 @@ export function EnquiryForm({
         </>
       ) : (
         <>
-          <label className="sr-only" htmlFor={`${id}-project`}>
-            Preferred Project
-          </label>
-          <select
-            id={`${id}-project`}
-            name="project"
-            defaultValue=""
-            className="form-field"
-          >
-            <option value="" disabled>
-              Preferred Project
-            </option>
-            {projects.map((project) => (
-              <option key={project.id} value={project.id}>
-                {project.name} — {project.type}
-              </option>
-            ))}
-          </select>
-          <label className="sr-only" htmlFor={`${id}-type`}>
-            Property Type
-          </label>
-          <select
-            id={`${id}-type`}
-            name="propertyType"
-            defaultValue=""
-            className="form-field"
-          >
-            <option value="" disabled>
-              Property Type
-            </option>
-            <option>Plot</option>
-            <option>Farmhouse</option>
-            <option>Land</option>
-          </select>
           <label className="sr-only" htmlFor={`${id}-budget`}>
             Preferred Budget
           </label>
