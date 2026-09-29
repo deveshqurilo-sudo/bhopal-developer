@@ -371,7 +371,7 @@ export function ContactSection() {
         </ButtonLink>
         <ButtonLink href="#enquiry">Book a Site Visit</ButtonLink>
       </div>
-      <ContactQrCard />
+      {/* <ContactQrCard /> */}
     </Section>
   );
 }

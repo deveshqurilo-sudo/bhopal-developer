@@ -8,7 +8,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write src next.config.ts postcss.config.mjs eslint.config.mjs package.json tsconfig.json README.md",
-    "format:check": "prettier --check src next.config.ts postcss.config.mjs eslint.config.mjs package.json tsconfig.json README.md"
+    "format:check": "prettier --check src next.config.ts postcss.config.mjs eslint.config.mjs package.json tsconfig.json README.md",
+    "qr": "node scripts/generate-qr.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.48.0",

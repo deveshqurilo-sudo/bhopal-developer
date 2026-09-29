@@ -26,7 +26,7 @@ export const siteImages = {
   farmhousePlots: "/images/reference/project-farm.jpg",
   landDevelopment: "/images/reference/hero.jpg",
   locationMap: "/images/reference/location-map.jpg",
-  farmhouse: "/images/reference/farmhouse.jpg",
+  farmhouse: "/images/reference/farmhouse.jpeg",
   possibilities: "/images/reference/project-plots.jpg",
   entrance: "/images/reference/entrance.jpg",
   roads: "/images/reference/internal-road.jpg",
