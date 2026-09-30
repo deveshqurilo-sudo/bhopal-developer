@@ -91,13 +91,13 @@ export const siteMedia: { video: VideoConfig; brochure: BrochureConfig } = {
     documents: [
       {
         id: "updated-project-brochure",
-        title: "Project Brochure — Updated",
+        title: "SHIV SHAKTI DHAM Brochure",
         fileName: "BROCHURE final update.pdf",
         sizeLabel: "3.8 MB",
       },
       {
         id: "palm-spring",
-        title: "Palm Spring",
+        title: "PALM SPRING Brochure",
         fileName: "Palm Spring.pdf",
         sizeLabel: "3.0 MB",
       },
