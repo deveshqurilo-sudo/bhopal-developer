@@ -16,7 +16,7 @@ export const projects: readonly Project[] = [
     id: "premium-plots",
     slug: "shiv-shakti-dham",
     name: "SHIV SHAKTI DHAM",
-    type: "Premium Plots",
+    type: "Commercial and Residential Plots",
     location:
       "Gopalpur Highway, Behind Collector Office Vidisha Road Raisen, Bhopal",
     description:
@@ -28,7 +28,7 @@ export const projects: readonly Project[] = [
     id: "farmhouse-plots",
     slug: "royal-green-park",
     name: "ROYAL GREEN PARK",
-    type: "Farmhouse Plots",
+    type: "Premium Plots",
     location: "Phanda Kalan, Bhopal Indore Bypass, Bhopal",
     description:
       "At Royal Green Park, we've designed every detail with your family's happiness in mind. From strong, wide roads to lush green gardens, from 24x7 security to open spaces where children can run freely - this is more than just a house. It's a place where your dreams of a safe, modern, and peaceful life come true.",
@@ -56,10 +56,10 @@ export const locations = [
   "1, 2 ABC Mall 4th Floor, Aakriti Ecocity, Bawadiya Kalan, Bhopal",
 ] as const;
 export const statistics = [
-  { value: "[XX]+", label: "Acres Developed" },
-  { value: "[XX]+", label: "Plots" },
-  { value: "[XX]+", label: "Happy Customers" },
-  { value: "[XX]", label: "Project Locations" },
+  { value: "36+", label: "Acres Developed" },
+  { value: "726+", label: "Plots" },
+  { value: "1000+", label: "Happy Customers" },
+  { value: "3", label: "Project Locations" },
 ] as const;
 
 export interface GalleryItem {

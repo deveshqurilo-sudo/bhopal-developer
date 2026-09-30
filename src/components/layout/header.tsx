@@ -56,8 +56,10 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <ButtonLink href="#enquiry" className="hidden !py-2.5 md:inline-flex">
-          Book a Site Visit
+      
+            {/* className=" mt-8 text-ink-foreground hover:bg-ink-foreground/10" */}
+        <ButtonLink href="#enquiry"   variant="outline" className="hidden !py-2.5 md:inline-flex">
+          Book a Site Visit 
         </ButtonLink>
         <button
           ref={toggleRef}

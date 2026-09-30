@@ -32,7 +32,8 @@ export function Hero() {
           value.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <ButtonLink href="#projects">Explore Projects</ButtonLink>
+          <ButtonLink href="#projects" variant="outline"
+            className="text-ink-foreground hover:bg-ink-foreground/10">Explore Projects</ButtonLink>
           <ButtonLink
             href="#enquiry"
             variant="outline"

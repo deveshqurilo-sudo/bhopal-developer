@@ -227,7 +227,8 @@ export function FarmhouseSection() {
           — a place for weekends, family gatherings, celebrations and peaceful
           living.
         </p>
-        <ButtonLink href="#projects" className="mt-8">
+        <ButtonLink href="#projects"  variant="outline"
+            className=" mt-8 text-ink-foreground hover:bg-ink-foreground/10">
           Explore Farmhouse Projects
         </ButtonLink>
       </div>
