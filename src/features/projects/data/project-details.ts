@@ -14,7 +14,7 @@ const details: Record<string, Omit<ProjectDetail, "project">> = {
   "shiv-shakti-dham": {
     gallery: projectImages["shiv-shakti-dham"],
     galleryNote:
-      "Project concept renders. Visit the site to see current progress.",
+      "Project concept renders.",
     highlights: [
       { label: "Property type", value: "Residential & commercial plots" },
       { label: "Setting", value: "Main highway, Vidisha Road, Raisen" },
@@ -36,7 +36,7 @@ const details: Record<string, Omit<ProjectDetail, "project">> = {
   "royal-green-park": {
     gallery: projectImages["royal-green-park"],
     galleryNote:
-      "Project concept renders. Visit the site to see current progress.",
+      "Project concept renders.",
     highlights: [
       { label: "Property type", value: "Farmhouse plots" },
       { label: "Location", value: "Phanda Kalan, Bhopal Indore Bypass" },

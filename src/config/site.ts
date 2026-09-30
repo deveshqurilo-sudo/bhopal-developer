@@ -20,9 +20,9 @@ export const siteConfig = {
   nextDealUrl: "https://nextdeal.in/",
   // Add your business profile URLs to make the footer icons clickable.
   social: {
-    instagram: "",
-    facebook: "",
-    linkedin: "",
+    instagram: "https://www.instagram.com/landmarkbuildersofficial?stkn=NjNyOTlvc3dmaHY3",
+    facebook: "https://www.facebook.com/profile.php?id=61584158966565",
+    // linkedin: "",
   },
 } as const;
 
