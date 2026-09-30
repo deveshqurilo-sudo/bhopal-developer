@@ -1,14 +1,17 @@
-// Update contact details here before connecting this website to your business.
+const contactNumber = "916232005241";
+const officeAddress =
+  "Palm Spring, Behind Kajlikheda Police Station, Near Kusha Bhau Thakre Nursing College, Kolar 6 Lane Road, Bhopal, Madhya Pradesh 462040";
+
 export const siteConfig = {
   name: "Landmark Builders and Developers.",
   company: "Landmark Builders and Developers",
-  phone: "[PHONE NUMBER]",
-  phoneHref: "tel:+910000000000",
-  whatsapp: "[WHATSAPP NUMBER]",
-  whatsappHref: "https://wa.me/910000000000",
-  email: "[EMAIL]",
-  office: "[OFFICE ADDRESS]",
-  directionsHref: "https://maps.google.com/?q=Bhopal",
+  phone: "+91 62320 05241",
+  phoneHref: `tel:+${contactNumber}`,
+  whatsapp: "+91 62320 05241",
+  whatsappHref: `https://wa.me/${contactNumber}`,
+  email: "landmarkbuildersdevelopers1@gmail.com",
+  office: officeAddress,
+  directionsHref: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`,
   nextDealUrl: "https://nextdeal.in/",
   // Add your business profile URLs to make the footer icons clickable.
   social: {

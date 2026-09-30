@@ -15,7 +15,6 @@ import { siteConfig, siteImages } from "@/config/site";
 import { locations, projects, statistics } from "../data/content";
 import { EnquiryForm } from "./enquiry-form";
 import { ProjectCard } from "./project-card";
-import { ContactQrCard } from "./contact-qr-card";
 
 export function AboutSection() {
   return (
@@ -227,8 +226,11 @@ export function FarmhouseSection() {
           — a place for weekends, family gatherings, celebrations and peaceful
           living.
         </p>
-        <ButtonLink href="#projects"  variant="outline"
-            className=" mt-8 text-ink-foreground hover:bg-ink-foreground/10">
+        <ButtonLink
+          href="#projects"
+          variant="outline"
+          className=" mt-8 text-ink-foreground hover:bg-ink-foreground/10"
+        >
           Explore Farmhouse Projects
         </ButtonLink>
       </div>
@@ -335,10 +337,32 @@ export function EnquirySection() {
 }
 
 const contacts = [
-  { icon: Phone, label: "Phone", value: siteConfig.phone },
-  { icon: MessageCircle, label: "WhatsApp", value: siteConfig.whatsapp },
-  { icon: Mail, label: "Email", value: siteConfig.email },
-  { icon: MapPin, label: "Office", value: siteConfig.office },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: siteConfig.phone,
+    href: siteConfig.phoneHref,
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: siteConfig.whatsapp,
+    href: siteConfig.whatsappHref,
+    external: true,
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
+  },
+  {
+    icon: MapPin,
+    label: "Office",
+    value: siteConfig.office,
+    href: siteConfig.directionsHref,
+    external: true,
+  },
 ];
 
 export function ContactSection() {
@@ -348,14 +372,20 @@ export function ContactSection() {
         Have a Project in Mind? Let&apos;s Talk.
       </h2>
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {contacts.map(({ icon: Icon, label, value }) => (
-          <div key={label} className="rounded-3xl bg-card p-6">
+        {contacts.map(({ icon: Icon, label, value, href, external }) => (
+          <a
+            key={label}
+            href={href}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+            className="rounded-3xl bg-card p-6 transition hover:shadow-soft focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
             <Icon className="h-5 w-5 text-primary" />
             <p className="mt-4 text-xs tracking-widest text-muted-foreground uppercase">
               {label}
             </p>
             <p className="mt-1 font-medium wrap-break-word">{value}</p>
-          </div>
+          </a>
         ))}
       </div>
       <div className="mt-10 flex flex-wrap gap-3">

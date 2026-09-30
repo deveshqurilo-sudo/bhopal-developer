@@ -1,44 +1,48 @@
 "use client";
 
 import { useId, useState, type FormEvent } from "react";
-import { CircleCheck } from "lucide-react";
+import { createEnquiryWhatsAppUrl, formValue } from "@/lib/whatsapp";
 
-// UI-only by design: no personal data is logged or persisted in the browser.
-// Replace this demo state with a validated server submission when connecting your CRM.
 export function EnquiryForm({
   variant = "callback",
 }: {
   variant?: "quick" | "callback";
 }) {
   const id = useId();
-  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
   const quick = variant === "quick";
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (event.currentTarget.reportValidity()) setSubmitted(true);
+    const form = event.currentTarget;
+    if (!form.reportValidity()) return;
+
+    const values = new FormData(form);
+    const lines = [
+      quick
+        ? "Hello, I have a quick project enquiry."
+        : "Hello, I would like a callback about your projects.",
+      `Name: ${formValue(values, "name")}`,
+      `Mobile: ${formValue(values, "mobile")}`,
+    ];
+
+    const city = formValue(values, "city");
+    const budget = formValue(values, "budget");
+    const message = formValue(values, "message");
+    if (city) lines.push(`City: ${city}`);
+    if (budget) lines.push(`Preferred budget: ${budget}`);
+    if (message) lines.push(`Message: ${message}`);
+
+    const url = createEnquiryWhatsAppUrl(lines);
+    if (!url) {
+      setError(
+        "WhatsApp number is not configured yet. Please contact us directly.",
+      );
+      return;
+    }
+
+    setError("");
+    window.location.assign(url);
   }
-  if (submitted)
-    return (
-      <div
-        role="status"
-        className="flex items-start gap-3 rounded-2xl bg-accent px-6 py-8 text-accent-foreground"
-      >
-        <CircleCheck className="h-6 w-6 shrink-0 text-primary" />
-        <div>
-          <p className="font-medium">Thank you! Your details are ready.</p>
-          <p className="mt-1 text-sm">
-            This is a demo form. Your enquiry has not been sent.
-          </p>
-          <button
-            type="button"
-            onClick={() => setSubmitted(false)}
-            className="mt-3 text-sm underline underline-offset-4"
-          >
-            Back to form
-          </button>
-        </div>
-      </div>
-    );
   return (
     <form
       aria-label={quick ? "Quick enquiry" : "Request a callback"}
@@ -125,8 +129,21 @@ export function EnquiryForm({
             : "rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition hover:opacity-90 sm:col-span-2 sm:justify-self-start"
         }
       >
-        {quick ? "Submit Enquiry" : "Request a Callback"}
+        {quick ? "Enquire on WhatsApp" : "Request Callback on WhatsApp"}
       </button>
+      <p
+        className={`text-xs text-muted-foreground ${quick ? "sm:col-span-2 lg:col-span-4" : "sm:col-span-2"}`}
+      >
+        WhatsApp will open with your details. Tap Send there to finish.
+      </p>
+      {error && (
+        <p
+          role="alert"
+          className={`text-sm text-destructive ${quick ? "sm:col-span-2 lg:col-span-4" : "sm:col-span-2"}`}
+        >
+          {error}
+        </p>
+      )}
     </form>
   );
 }
