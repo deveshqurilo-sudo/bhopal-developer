@@ -1,6 +1,6 @@
 const contactNumber = "916232005241";
 const officeAddress =
-  "Palm Spring, Behind Kajlikheda Police Station, Near Kusha Bhau Thakre Nursing College, Kolar 6 Lane Road, Bhopal, Madhya Pradesh 462040";
+  "1, 2 ABC Mall 4th Floor, Aakriti Ecocity, Bawadiya Kalan, Bhopal";
 
 export const siteConfig = {
   name: "Landmark Builders and Developers.",

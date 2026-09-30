@@ -41,7 +41,7 @@ export const projects: readonly Project[] = [
     name: "PALM SPRINGS",
     type: "Premium Plot Development",
     location:
-      "1, 2 ABC Mall 4th Floor, Aakriti Ecocity, Bawadiya Kalan, Bhopal",
+      "Palm Spring, Behind Kajlikheda Police Station, Near Kusha Bhau Thakre Nursing College, Kolar 6 Lane Road, Bhopal, Madhya Pradesh 462040 ",
     description:
       "Palm Springs is envisioned to create a happy community of like minded people who appreciate comfortable living amidst natures raw beauty and well designed spaces.",
     image: projectImages["palm-springs"][0].src,
@@ -53,7 +53,7 @@ export const locations = [
   "Bhopal",
   "Gopalpur Highway, Behind Collector Office Vidisha Road Raisen, Bhopal",
   "Phanda Kalan, Bhopal Indore Bypass, Bhopal",
-  "1, 2 ABC Mall 4th Floor, Aakriti Ecocity, Bawadiya Kalan, Bhopal",
+  "Palm Spring, Behind Kajlikheda Police Station, Near Kusha Bhau Thakre Nursing College, Kolar 6 Lane Road, Bhopal, Madhya Pradesh 462040 ",
 ] as const;
 export const statistics = [
   { value: "36+", label: "Acres Developed" },
