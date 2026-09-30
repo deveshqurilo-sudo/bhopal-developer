@@ -215,21 +215,46 @@ export default async function ProjectPage({ params }: PageProps) {
         </section>
 
         <section id="amenities" className="scroll-mt-24 pt-20">
-          <p className="eyebrow">What stands out</p>
-          <h2 className="mt-3 text-4xl md:text-5xl">Project features</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {amenities.map((amenity) => (
+          <p className="eyebrow">From the project brochure</p>
+          <h2 className="mt-3 text-4xl md:text-5xl">Amenities & features</h2>
+          <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
+            Explore the spaces and facilities described for {project.name}.
+          </p>
+          <div
+            className={`mt-8 grid gap-5 md:grid-cols-2 ${amenities.length > 2 ? "xl:grid-cols-3" : ""}`}
+          >
+            {amenities.map((group, index) => (
               <div
-                key={amenity}
-                className="flex items-center gap-3 rounded-2xl border bg-secondary/60 p-5"
+                key={group.title}
+                className="rounded-3xl border bg-card p-6 shadow-soft md:p-7"
               >
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent text-primary">
-                  <Check className="h-4 w-4" />
-                </span>
-                <span className="text-sm font-semibold">{amenity}</span>
+                <div className="flex items-center gap-4 border-b pb-5">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-accent text-sm font-semibold text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-2xl leading-tight">{group.title}</h3>
+                </div>
+                <ul className="mt-2 divide-y">
+                  {group.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 py-3 text-sm leading-relaxed"
+                    >
+                      <Check
+                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                        aria-hidden="true"
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Brochure visuals and specifications may be conceptual. Please
+            confirm the current status of each amenity during your site visit.
+          </p>
         </section>
 
         <section id="plots" className="scroll-mt-24 pt-20">

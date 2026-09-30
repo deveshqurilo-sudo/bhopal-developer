@@ -2,7 +2,7 @@ import { CalendarCheck, MessageCircle, Phone } from "lucide-react";
 import { navigation, siteConfig } from "@/config/site";
 import { Brand } from "./brand";
 
-type SocialNetwork = "Instagram" | "Facebook" | "LinkedIn";
+type SocialNetwork = "Instagram" | "Facebook";
 
 function SocialIcon({ network }: { network: SocialNetwork }) {
   if (network === "Instagram") {
@@ -29,11 +29,7 @@ function SocialIcon({ network }: { network: SocialNetwork }) {
       className="h-5 w-5"
       aria-hidden="true"
     >
-      {network === "Facebook" ? (
-        <path d="M16.7 12.9h-3V22H9.6v-9.1H7V9.2h2.6V6.7C9.6 3.5 11 2 14 2h3v3.7h-1.9c-1.4 0-1.5.5-1.5 1.5v2h3.3l-.2 3.7Z" />
-      ) : (
-        <path d="M4.6 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3 9h3.2v12H3V9Zm5.4 0h3.1v1.6h.1c.4-.8 1.4-1.8 3.1-1.8 3.3 0 3.9 2.1 3.9 4.8V21h-3.2v-6.6c0-1.6 0-3.6-2.2-3.6s-2.6 1.7-2.6 3.5V21H8.4V9Z" />
-      )}
+      <path d="M16.7 12.9h-3V22H9.6v-9.1H7V9.2h2.6V6.7C9.6 3.5 11 2 14 2h3v3.7h-1.9c-1.4 0-1.5.5-1.5 1.5v2h3.3l-.2 3.7Z" />
     </svg>
   );
 }
@@ -42,7 +38,6 @@ export function Footer() {
   const socialLinks = [
     { label: "Instagram", href: siteConfig.social.instagram },
     { label: "Facebook", href: siteConfig.social.facebook },
-    { label: "LinkedIn", href: siteConfig.social.linkedin },
   ] as const;
 
   return (
