@@ -24,7 +24,7 @@ export function Header() {
         toggleRef.current?.focus();
       }
     };
-    const media = window.matchMedia("(min-width: 768px)");
+    const media = window.matchMedia("(min-width: 1024px)");
     const onResize = () => {
       if (media.matches) setMenuOpen(false);
     };
@@ -40,11 +40,11 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-40 transition ${solid ? "bg-background/90 shadow-sm backdrop-blur" : "bg-transparent"}`}
     >
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-5 lg:px-8">
         <Brand light={!solid} />
         <nav
           aria-label="Main navigation"
-          className={`hidden gap-8 text-sm font-medium md:flex ${solid ? "text-foreground" : "text-ink-foreground"}`}
+          className={`hidden items-center gap-5 text-sm font-medium lg:flex xl:gap-8 ${solid ? "text-foreground" : "text-ink-foreground"}`}
         >
           {navigation.map((link) => (
             <a
@@ -56,10 +56,12 @@ export function Header() {
             </a>
           ))}
         </nav>
-      
-            {/* className=" mt-8 text-ink-foreground hover:bg-ink-foreground/10" */}
-        <ButtonLink href="#enquiry"   variant="outline" className="hidden !py-2.5 md:inline-flex">
-          Book a Site Visit 
+        <ButtonLink
+          href="#enquiry"
+          variant="outline"
+          className={`hidden shrink-0 !px-5 !py-2.5 lg:inline-flex ${solid ? "" : "text-ink-foreground hover:bg-ink-foreground/10"}`}
+        >
+          Book a Site Visit
         </ButtonLink>
         <button
           ref={toggleRef}
@@ -68,7 +70,7 @@ export function Header() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`-m-2 p-2 md:hidden ${solid ? "text-foreground" : "text-ink-foreground"}`}
+          className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl lg:hidden ${solid ? "text-foreground hover:bg-secondary" : "text-ink-foreground hover:bg-ink-foreground/10"}`}
         >
           {menuOpen ? <X /> : <Menu />}
         </button>
@@ -77,7 +79,7 @@ export function Header() {
         <nav
           id="mobile-navigation"
           aria-label="Mobile navigation"
-          className="flex flex-col gap-4 border-t bg-background px-5 py-6 md:hidden"
+          className="flex flex-col gap-4 border-t bg-background px-5 py-6 text-foreground lg:hidden"
         >
           {navigation.map((link) => (
             <a

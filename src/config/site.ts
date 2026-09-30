@@ -5,6 +5,11 @@ const officeAddress =
 export const siteConfig = {
   name: "Landmark Builders and Developers.",
   company: "Landmark Builders and Developers",
+  brand: {
+    name: "Landmark",
+    descriptor: "Builders & Developers",
+    logo: "/images/logo.jpeg",
+  },
   phone: "+91 62320 05241",
   phoneHref: `tel:+${contactNumber}`,
   whatsapp: "+91 62320 05241",

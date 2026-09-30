@@ -48,7 +48,7 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <>
       <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
-        <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 md:px-8">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-5 lg:px-8">
           <Brand href="/" />
           <nav
             aria-label="Project page navigation"
@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: PageProps) {
           </nav>
           <ButtonLink
             href="#site-visit"
-            className="hidden !px-5 !py-2.5 sm:inline-flex"
+            className="hidden shrink-0 !px-5 !py-2.5 sm:inline-flex"
           >
             Enquire Now
           </ButtonLink>

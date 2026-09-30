@@ -12,6 +12,10 @@ export const metadata: Metadata = {
       "Thoughtfully planned plots and farmhouse projects around Bhopal. Book a site visit.",
     type: "website",
   },
+  icons: {
+    icon: "/images/logo.jpeg",
+    apple: "/images/logo.jpeg",
+  },
 };
 
 export default function RootLayout({
