@@ -6,10 +6,21 @@ import { navigation } from "@/config/site";
 import { Brand } from "./brand";
 import { ButtonLink } from "@/components/ui/button-link";
 
-export function Header() {
+const projectNavigation = [
+  { label: "Projects", href: "/#projects" },
+  { label: "Overview", href: "#overview" },
+  { label: "Highlights", href: "#amenities" },
+  { label: "Site Visit", href: "#site-visit" },
+] as const;
+
+export function Header({ variant = "home" }: { variant?: "home" | "project" }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const projectPage = variant === "project";
+  const links = projectPage ? projectNavigation : navigation;
+  const enquiryHref = projectPage ? "#site-visit" : "#enquiry";
+  const enquiryLabel = projectPage ? "Enquire Now" : "Book a Site Visit";
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 40);
     update();
@@ -35,18 +46,20 @@ export function Header() {
       media.removeEventListener("change", onResize);
     };
   }, [menuOpen]);
-  const solid = scrolled || menuOpen;
+  const solid = projectPage || scrolled || menuOpen;
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 transition ${solid ? "bg-background/90 shadow-sm backdrop-blur" : "bg-transparent"}`}
+      className={`top-0 z-40 transition ${projectPage ? "sticky border-b bg-background/95 backdrop-blur" : `fixed inset-x-0 ${solid ? "bg-background/90 shadow-sm backdrop-blur" : "bg-transparent"}`}`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-5 lg:px-8">
-        <Brand light={!solid} />
+        <Brand href={projectPage ? "/" : "#home"} light={!solid} />
         <nav
-          aria-label="Main navigation"
+          aria-label={
+            projectPage ? "Project page navigation" : "Main navigation"
+          }
           className={`hidden items-center gap-5 text-sm font-medium lg:flex xl:gap-8 ${solid ? "text-foreground" : "text-ink-foreground"}`}
         >
-          {navigation.map((link) => (
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -57,11 +70,11 @@ export function Header() {
           ))}
         </nav>
         <ButtonLink
-          href="#enquiry"
+          href={enquiryHref}
           variant="outline"
           className={`hidden shrink-0 !px-5 !py-2.5 lg:inline-flex ${solid ? "" : "text-ink-foreground hover:bg-ink-foreground/10"}`}
         >
-          Book a Site Visit
+          {enquiryLabel}
         </ButtonLink>
         <button
           ref={toggleRef}
@@ -70,9 +83,13 @@ export function Header() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl lg:hidden ${solid ? "text-foreground hover:bg-secondary" : "text-ink-foreground hover:bg-ink-foreground/10"}`}
+          className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-primary bg-primary text-primary-foreground shadow-sm transition hover:opacity-90 lg:hidden"
         >
-          {menuOpen ? <X /> : <Menu />}
+          {menuOpen ? (
+            <X className="h-6 w-6" strokeWidth={2.5} />
+          ) : (
+            <Menu className="h-6 w-6" strokeWidth={2.5} />
+          )}
         </button>
       </div>
       {menuOpen && (
@@ -81,7 +98,7 @@ export function Header() {
           aria-label="Mobile navigation"
           className="flex flex-col gap-4 border-t bg-background px-5 py-6 text-foreground lg:hidden"
         >
-          {navigation.map((link) => (
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -91,8 +108,8 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <ButtonLink href="#enquiry" onClick={() => setMenuOpen(false)}>
-            Book a Site Visit
+          <ButtonLink href={enquiryHref} onClick={() => setMenuOpen(false)}>
+            {enquiryLabel}
           </ButtonLink>
         </nav>
       )}

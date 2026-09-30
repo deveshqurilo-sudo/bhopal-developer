@@ -10,6 +10,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { Brand } from "@/components/layout/brand";
+import { Header } from "@/components/layout/header";
 import { ButtonLink } from "@/components/ui/button-link";
 import { projects } from "@/features/home/data/content";
 import { getProjectDetail } from "@/features/projects/data/project-details";
@@ -47,46 +48,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-5 lg:px-8">
-          <Brand href="/" />
-          <nav
-            aria-label="Project page navigation"
-            className="hidden items-center gap-6 text-sm font-medium md:flex"
-          >
-            <Link
-              href="/#projects"
-              className="text-muted-foreground transition hover:text-primary"
-            >
-              Projects
-            </Link>
-            <a
-              href="#overview"
-              className="text-muted-foreground transition hover:text-primary"
-            >
-              Overview
-            </a>
-            <a
-              href="#amenities"
-              className="text-muted-foreground transition hover:text-primary"
-            >
-              Highlights
-            </a>
-            <a
-              href="#site-visit"
-              className="text-muted-foreground transition hover:text-primary"
-            >
-              Site Visit
-            </a>
-          </nav>
-          <ButtonLink
-            href="#site-visit"
-            className="hidden shrink-0 !px-5 !py-2.5 sm:inline-flex"
-          >
-            Enquire Now
-          </ButtonLink>
-        </div>
-      </header>
+      <Header variant="project" />
 
       <main className="mx-auto max-w-7xl px-5 pb-24 md:px-8">
         <nav

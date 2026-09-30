@@ -11,7 +11,7 @@ export function Brand({
   return (
     <a
       href={href}
-      className={`inline-flex min-w-0 shrink-0 items-center gap-2.5 ${light ? "text-ink-foreground" : "text-foreground"}`}
+      className={`inline-flex min-w-0 items-center gap-2.5 ${light ? "text-ink-foreground" : "text-foreground"}`}
       aria-label={`${siteConfig.name} home`}
     >
       <span
@@ -28,10 +28,10 @@ export function Brand({
         />
       </span>
       <span className="min-w-0 leading-none">
-        <span className="block whitespace-nowrap font-display text-[1.45rem] font-semibold tracking-wide sm:text-[1.7rem]">
+        <span className="block truncate font-display text-[1.45rem] font-semibold tracking-wide sm:text-[1.7rem]">
           {siteConfig.brand.name}
         </span>
-        <span className="mt-1 block whitespace-nowrap font-sans text-[0.55rem] font-bold tracking-[0.12em] uppercase sm:text-[0.65rem]">
+        <span className="mt-1 block truncate font-sans text-[0.55rem] font-bold tracking-[0.12em] uppercase sm:text-[0.65rem]">
           {siteConfig.brand.descriptor}
         </span>
       </span>

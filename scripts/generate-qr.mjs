@@ -3,7 +3,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import QRCode from "qrcode";
 import sharp from "sharp";
 
-const WEBSITE_URL = "https://bhopal-developer.vercel.app/";
+const WEBSITE_URL = "https://landmarkbuildersanddevelopers.nextdeal.in/";
 const COMPANY = "LANDMARK BUILDERS & DEVELOPERS";
 const OUT_DIR = new URL("../public/qr/", import.meta.url);
 
@@ -48,14 +48,15 @@ function qrMarkup(x, y, size) {
       <rect x="${ex + m * 2}" y="${ey + m * 2}" width="${m * 3}" height="${m * 3}" rx="${m * 0.9}" fill="${INK}"/>`;
   });
 
-  // Center badge: stays well under the ~30% damage budget of level H.
-  const badge = m * 7;
-  const bx = x + size / 2 - badge / 2;
-  const by = y + size / 2 - badge / 2;
+  // Center badge: a wide NextDeal pill, well under the ~30% damage budget of level H.
+  const bw = m * 13;
+  const bh = m * 4.6;
+  const bx = x + size / 2 - bw / 2;
+  const by = y + size / 2 - bh / 2;
   const center = `
-    <rect x="${bx - m * 0.6}" y="${by - m * 0.6}" width="${badge + m * 1.2}" height="${badge + m * 1.2}" rx="${m * 1.6}" fill="#fff"/>
-    <rect x="${bx}" y="${by}" width="${badge}" height="${badge}" rx="${m * 1.4}" fill="${BLUE}"/>
-    <text x="${bx + badge / 2}" y="${by + badge / 2 + m * 1.35}" text-anchor="middle" font-family="${SERIF}" font-size="${m * 3.8}" font-weight="700" fill="#fff">L</text>`;
+    <rect x="${bx - m * 0.6}" y="${by - m * 0.6}" width="${bw + m * 1.2}" height="${bh + m * 1.2}" rx="${m * 1.6}" fill="#fff"/>
+    <rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="${m * 1.2}" fill="${INK}"/>
+    <text x="${bx + bw / 2}" y="${by + bh / 2 + m * 0.95}" text-anchor="middle" font-family="${SANS}" font-size="${m * 2.7}" font-weight="700" fill="#fff">Next<tspan fill="#5b95ff">Deal</tspan></text>`;
 
   return `<g fill="${INK}">${parts.join("")}</g>${eyes.join("")}${center}`;
 }
